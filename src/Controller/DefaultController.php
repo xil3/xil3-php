@@ -30,18 +30,23 @@ class DefaultController extends AbstractController
         $email = $request->request->get('email');
         $message = $request->request->get('message');
 
-        $message = (new \Swift_Message("Message from $name [$email] - xil3.com"))
-            ->setFrom('jon@xil3.com')
-            ->setTo('jon@j4r.org')
-            ->setBody(
-                $message,
-                'text/plain'
-            )
-        ;
+        if($name && $email && $message) {
+            $message = (new \Swift_Message("Message from $name [$email] - xil3.com"))
+                ->setFrom('jon@xil3.com')
+                ->setTo('jon@j4r.org')
+                ->setBody(
+                    $message,
+                    'text/plain'
+                )
+            ;
 
-        $mailer->send($message);
+            $mailer->send($message);
 
-        $session->getFlashBag()->add('notice', 'Success! Message has been sent. We will be getting back to you as soon as possible.');
+            $session->getFlashBag()->add('notice', 'Success! Message has been sent. We will be getting back to you as soon as possible.');
+        } else {
+            $session->getFlashBag()->add('error', 'Unable to send message. Please make sure you enter all the required fields.');
+        }
+        
 
         return $this->redirectToRoute('homepage');
     }
