@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
  */
-class Article
+class Tag
 {
     /**
      * @ORM\Id()
@@ -19,22 +19,12 @@ class Article
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $author;
+    private $name;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\OneToMany(targetEntity="App\Entity\ArticleTag", mappedBy="tag")
      */
-    private $title;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $body;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ArticleTag", mappedBy="article")
-     */
-    private $tags;
+    private $articles;
 
     /**
      * @ORM\Column(type="datetime", length=100)
@@ -46,6 +36,7 @@ class Article
     {
         $this->date_created = new \DateTime('NOW');
     }
+
 
     /**
      * @return mixed
@@ -70,19 +61,19 @@ class Article
     /**
      * @return mixed
      */
-    public function getAuthor()
+    public function getName()
     {
-        return $this->author;
+        return $this->name;
     }
 
     /**
-     * @param mixed $author
+     * @param mixed $name
      *
      * @return self
      */
-    public function setAuthor($author)
+    public function setName($name)
     {
-        $this->author = $author;
+        $this->name = $name;
 
         return $this;
     }
@@ -90,59 +81,19 @@ class Article
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getArticles()
     {
-        return $this->title;
+        return $this->articles;
     }
 
     /**
-     * @param mixed $title
+     * @param mixed $articles
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setArticles($articles)
     {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * @param mixed $body
-     *
-     * @return self
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param mixed $tags
-     *
-     * @return self
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
+        $this->articles = $articles;
 
         return $this;
     }
