@@ -27,6 +27,11 @@ class Article
     private $title;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $seo_title;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $body;
@@ -163,6 +168,26 @@ class Article
     public function setDateCreated($date_created)
     {
         $this->date_created = $date_created;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeoTitle()
+    {
+        return $this->seo_title;
+    }
+
+    /**
+     * @param mixed $seo_title
+     *
+     * @return self
+     */
+    public function setSeoTitle($seo_title)
+    {
+        $this->seo_title = $seo_title;
 
         return $this;
     }

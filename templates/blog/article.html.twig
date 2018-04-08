@@ -2,6 +2,10 @@
 
 {% block stylesheets %}
     <link href="{{ asset('css/blog.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bower_components/codemirror/lib/codemirror.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/highlightjs/styles/github.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/tui-editor/dist/tui-editor.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/tui-editor/dist/tui-editor-contents.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -38,7 +42,8 @@
                 <hr />-->
 
                 <!-- Post Content -->
-                {{ article.getBody()|raw }}
+                <div id="initialValue" style="display: none;">{{ article.getBody() }}</div>
+                <div id="viewerSection"></div>
 
                 <hr />
 
@@ -94,7 +99,9 @@
 
               <!-- Sidebar Widgets Column -->
               <div class="col-md-4">
-                  {{ include('blog/right_panel.html.twig') }}
+                  {{ render(controller(
+                      'App\\Controller\\BlogController::rightPanel'
+                  )) }}
               </div>
 
             </div>
@@ -102,4 +109,23 @@
 
         </div>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src='{{ asset('bower_components/markdown-it/dist/markdown-it.js') }}'></script>
+    <script src="{{ asset('bower_components/to-mark/dist/to-mark.js') }}"></script>
+    <script src="{{ asset('bower_components/tui-code-snippet/dist/tui-code-snippet.js') }}"></script>
+    <script src="{{ asset('bower_components/codemirror/lib/codemirror.js') }}"></script>
+    <script src="{{ asset('bower_components/highlightjs/highlight.pack.js') }}"></script>
+    <script src="{{ asset('bower_components/squire-rte/build/squire-raw.js') }}"></script>
+    <script src="{{ asset('bower_components/tui-editor/dist/tui-editor-Editor.js') }}"></script>
+
+    <script type="text/javascript">
+        var editor = tui.Editor.factory({
+            el: document.querySelector('#viewerSection'),
+            viewer: true,
+            height: '500px',
+            initialValue: $("#initialValue").text()
+        });
+    </script>
 {% endblock %}

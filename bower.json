@@ -1,0 +1,23 @@
+{
+  "name": "xil3-php",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Jon Simon <jon@j4r.org>"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "summernote": "^0.8.10",
+    "jquery": "^3.3.1",
+    "tui-editor": "^1.0.6"
+  }
+}
