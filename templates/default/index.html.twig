@@ -219,7 +219,7 @@
                                 <p>Message</p>
                                 <textarea name="message" class="form-control" rows="8"  required=""></textarea>
                             </div>
-                            <button type="submit" class="btn btn-white">Send Message</button>
+                            <button class="btn btn-white g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>Send Message</button>
                         </form>
                     </div>
                     <div class="col-md-6 adress">
@@ -278,4 +278,12 @@
         </div>
         <div class="space-60"></div>
     </section>  
+{% endblock %}
+
+{% block javascript %}
+
+function onSubmit(token) {
+    document.getElementById("main-contact-form").submit();
+}
+
 {% endblock %}
