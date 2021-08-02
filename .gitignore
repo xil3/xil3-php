@@ -17,3 +17,7 @@
 ###< symfony/phpunit-bridge ###
 
 .phpintel
+
+.DS_Store
+
+public/bower_components

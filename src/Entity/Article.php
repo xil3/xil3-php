@@ -27,9 +27,30 @@ class Article
     private $title;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $seo_title;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $body;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ArticleTag", mappedBy="article")
+     */
+    private $tags;
+
+    /**
+     * @ORM\Column(type="datetime", length=100)
+     */
+    private $date_created;
+
+
+    public function __construct()
+    {
+        $this->date_created = new \DateTime('NOW');
+    }
 
     /**
      * @return mixed
@@ -107,6 +128,66 @@ class Article
     public function setBody($body)
     {
         $this->body = $body;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param mixed $tags
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateCreated()
+    {
+        return $this->date_created;
+    }
+
+    /**
+     * @param mixed $date_created
+     *
+     * @return self
+     */
+    public function setDateCreated($date_created)
+    {
+        $this->date_created = $date_created;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeoTitle()
+    {
+        return $this->seo_title;
+    }
+
+    /**
+     * @param mixed $seo_title
+     *
+     * @return self
+     */
+    public function setSeoTitle($seo_title)
+    {
+        $this->seo_title = $seo_title;
 
         return $this;
     }
