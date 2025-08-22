@@ -1,13 +1,33 @@
 {
-    "devDependencies": {
-        "@symfony/webpack-encore": "^0.17.0"
-    },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server",
-        "dev": "encore dev",
-        "watch": "encore dev --watch",
-        "build": "encore production"
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "name": "xil3",
+    "version": "1.0.0",
+    "description": "Xil3 Media website - Node.js Express application for technical consulting services",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xil3/xil3-nodejs.git"
+    },
+    "keywords": [],
+    "author": "",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/xil3/xil3-nodejs/issues"
+    },
+    "homepage": "https://github.com/xil3/xil3-nodejs#readme",
+    "dependencies": {
+        "body-parser": "^2.2.0",
+        "connect-flash": "^0.1.1",
+        "ejs": "^3.1.10",
+        "express": "^5.1.0",
+        "express-ejs-layouts": "^2.5.1",
+        "express-session": "^1.18.2",
+        "method-override": "^3.0.0",
+        "nodemailer": "^7.0.5"
     }
 }

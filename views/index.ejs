@@ -1,0 +1,182 @@
+<!--start header-->
+<section class="header-full-screen background-1" id="home">
+    <div class="absolute_full">
+        <div class="display-table">
+            <div class="vertical-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text-center">
+                            <% if (success && success.length > 0) { %>
+                                <div class="alert alert-success" role="alert">
+                                    <%= success[0] %>
+                                </div>
+                                <br /><br />
+                            <% } %>
+                            <% if (error && error.length > 0) { %>
+                                <div class="alert alert-warning" role="alert">
+                                    <%= error[0] %>
+                                </div>
+                                <br /><br />
+                            <% } %>
+                            <div class="hidden-xs">
+                                <img src="/images/logo2.jpg" alt="logo"/>
+                            </div>
+                            <h1>Technical consulting specialists</h1>
+                            <p class="lead">We deliver technical solutions for small (start-up) to large companies, from software development to cloud infrastructure - it's covered</p>
+                            <p class="hidden-lg"><i class="fa fa-phone fa-1x fa-green"></i> <span class="phone-alt">1-844-257-6187</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- about us-->
+<section id="about" class="text-center about-section" >
+    <div class="container">  
+        <div class="row">
+            <div class="col-md-12 text-center icon-abt-top"> 
+                <img src="/images/bg-icon-top-abt.png" alt="icon" /> 
+            </div>
+        </div>
+        <div class="space-80"></div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 ">
+                <h2> About Us </h2>
+                <p class="btm-dot">...</p>
+                <p>We're a team of technical professionals (specializing in software development/architecture and cloud infrastructure).</p>
+                <p>With technology advancing at such a fast pace, organizations have to keep on top of things to stay competitive. This is where we come in. Our team is always on top of the latest trends, and we'll be able to advise and execute changes that will help you thrive.</p>
+            </div> 
+            <div class="row">
+                <div class="col-md-12 text-center"> 
+                    <img src="/images/bg-abt.png" alt="section heading" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Services-->
+<section id="services" class="services">
+    <div class="space-80"></div>
+    <div class="space-20"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Our services</h2>
+                <p class="btm-dot">...</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <a href="#">
+                    <div class="services-hover">
+                        <span class="fa-stack fa-4x">
+                            <i> <img src="/images/001.png" /></i>
+                        </span>
+                        <h4 class="service-heading">Startup Technical Consulting</h4>
+                        <p class="text-muted">Technical advice from seasoned experts in the start-up space</p>
+                        <a href="#contact" class="btn btn-primary">Contact us</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="#">
+                    <div class="services-hover">
+                        <span class="fa-stack fa-4x">
+                            <i> <img src="/images/002.png" /></i>
+                        </span>
+                        <h4 class="service-heading">Cloud Architecture &amp; Migration</h4>
+                        <p class="text-muted">Design complex cloud infrastructures, catered to your business needs</p>
+                        <a href="#contact" class="btn btn-primary">Contact us</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="#">
+                    <div class="services-hover">
+                        <span class="fa-stack fa-4x">
+                            <i> <img src="/images/003.png" /></i>
+                        </span>
+                        <h4 class="service-heading">Enterprises &amp; Solution Architecture</h4>
+                        <p class="text-muted">We will help you architect complex solutions, through the entire life cycle</p>
+                        <a href="#contact" class="btn btn-primary">Contact us</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="#">
+                    <div class="services-hover">
+                        <span class="fa-stack fa-4x">
+                            <i> <img src="/images/004.png" /></i>
+                        </span>
+                        <h4 class="service-heading">Software <br />Development</h4>
+                        <p class="text-muted">Complete web and mobile solutions or any custom software requirements</p>
+                        <a href="#contact" class="btn btn-primary">Contact us</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+   <div class="space-60"></div>
+</section>
+
+<section id="contact" class="contact-us-headding">
+    <div class="space-80"></div>
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12 text-center ">
+                <h2> Get In Touch With Us</h2> 
+                <p class="btm-dot">...</p>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h3><i class="fa fa-envelope" aria-hidden="true"></i> Contact Form</h3>
+                    <form id="main-contact-form" name="contact-form" method="post" action="/send-message">
+                        <div class="form-group">
+                            <p>Name</p>
+                            <input type="text" name="name" class="form-control" required="" />
+                        </div>
+                        <div class="form-group">
+                            <p>Email</p>
+                            <input type="email" name="email" class="form-control" required="" />
+                        </div>
+                        <div class="form-group">
+                            <p>Message</p>
+                            <textarea name="message" class="form-control" rows="8" required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-white">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6 adress">
+                    <h3><i class="fa fa-suitcase" aria-hidden="true"></i> Our Office</h3>
+                    <p>Our main offices are located in Ontario, Canada.</p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> London, Ontario</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> 1-844-257-6187</p>
+                    <div class="social-icons">
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/Xil3-169505090273420/" target="_blank">
+                                    <span class="fa-stack fa-2x">
+                                        <i class="fa fa-circle fa-stack-2x text1-primary"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space-60"></div>
+</section>
+
+<script>
+function onSubmit(token) {
+    document.getElementById("main-contact-form").submit();
+}
+</script>
